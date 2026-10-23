@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none';" />
+    <title>Claudete</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="mode-message">
+    <main class="panel-window" aria-label="Conversa da Claudete">
+      <section class="quick-panel">
+        <header class="conversation-heading" id="conversation-heading" hidden>
+          <div><strong>Conversa</strong><small id="project-label">Nenhum projeto selecionado</small></div>
+          <button class="close-panel" id="close-panel" aria-label="Fechar conversa" title="Fechar">×</button>
+        </header>
+        <div class="conversation" id="conversation" hidden>
+          <div class="message-history" id="message-history" hidden></div>
+        </div>
+        <section class="popover action-menu" id="action-menu" hidden aria-label="Ações">
+          <button data-menu="buttons"><span>▦</span> Botões</button>
+          <button data-menu="history" id="history-option" hidden><span>◷</span> Últimas interações</button>
+          <button data-menu="wake"><span>◉</span><span id="wake-label">Ativar palavra de ativação: Claudete</span></button>
+          <button data-menu="claude-login"><span>↗</span> Conectar Claude Code</button>
+          <button data-menu="project-select"><span>✦</span> Selecionar Projeto no Claude Code</button>
+          <button id="attachment-button"><span>＋</span> Adicionar arquivo ou pasta</button>
+        </section>
+        <section class="popover button-list" id="button-list" hidden aria-label="Botões do projeto">
+          <button data-action="folder"><span>▰</span> Pasta para ações locais</button>
+          <button data-action="dev"><span>▶</span> Iniciar projeto</button>
+          <button data-action="test"><span>✓</span> Rodar testes</button>
+          <button data-action="site"><span>↗</span> Abrir site</button>
+          <button data-action="stop"><span>■</span> Parar</button>
+          <button data-action="claude"><span>✦</span> Abrir Claude</button>
+        </section>
+        <section class="popover session-picker" id="session-picker" hidden aria-label="Projetos e conversas do Claude Code">
+          <header class="picker-heading">
+            <div><strong>Selecionar Projeto no Claude Code</strong><small>Conversas locais recentes</small></div>
+            <button class="close-panel" id="close-picker" aria-label="Fechar lista">×</button>
+          </header>
+          <div class="session-list" id="session-list" role="listbox" aria-label="Conversas recentes"></div>
+          <small class="picker-status" id="picker-status" aria-live="polite"></small>
+        </section>
+        <div class="attachment-list" id="attachment-list" hidden></div>
+        <form class="composer" id="composer">
+          <button class="plus-button" id="plus-button" type="button" aria-label="Abrir opções" aria-expanded="false" title="Opções">+</button>
+          <label class="sr-only" for="prompt">Escreva seu pedido</label>
+          <textarea id="prompt" rows="1" placeholder="Escreva seu pedido..." maxlength="4000"></textarea>
+          <div class="composer-actions">
+            <button class="mic-button" id="mic-button" type="button" aria-label="Iniciar gravação de voz" aria-pressed="false" title="Clique para falar">🎙</button>
+            <button class="send-button" type="submit" aria-label="Enviar mensagem" title="Enviar">↑</button>
+          </div>
+        </form>
+        <small class="voice-status" id="voice-status" aria-live="polite" hidden></small>
+      </section>
+    </main>
+    <script src="./renderer.cjs"></script>
+  </body>
+</html>

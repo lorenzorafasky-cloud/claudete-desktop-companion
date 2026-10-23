@@ -1,0 +1,14 @@
+node_modules/
+.npm-cache/
+.electron-cache/
+.tmp/
+dist/
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+src/layout-capture.png

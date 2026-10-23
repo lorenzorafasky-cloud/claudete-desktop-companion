@@ -1,0 +1,14 @@
+{
+  "name": "claudete-desktop-companion",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local desktop companion shell for Claude Code, with explicit action confirmations.",
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check src/main.cjs && node --check src/preload.cjs && node --check src/renderer.cjs && node --check src/mascot-renderer.cjs && node --check src/permission-server.cjs"
+  },
+  "devDependencies": {
+    "electron": "45.0.0"
+  }
+}

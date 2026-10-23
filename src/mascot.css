@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
+.mascot { position: relative; display: grid; width: 170px; height: 208px; margin: 0; place-items: center; padding: 0; border: 0; outline: 0; background: transparent; cursor: grab; pointer-events: none; -webkit-user-select: none; user-select: none; }
+.mascot::before { position: absolute; z-index: 1; inset: 0; background: transparent; content: ""; cursor: grab; pointer-events: auto; clip-path: polygon(36% 18%,43% 8%,46% 0%,64% 0%,67% 8%,65% 18%,69% 31%,69% 43%,76% 50%,86% 58%,94% 67%,96% 73%,92% 78%,85% 77%,81% 72%,77% 70%,74% 77%,82% 84%,86% 92%,82% 97%,74% 97%,69% 91%,64% 86%,60% 94%,55% 99%,49% 97%,44% 90%,39% 86%,34% 93%,29% 98%,23% 97%,18% 93%,15% 86%,18% 79%,11% 80%,7% 74%,11% 68%,20% 59%,28% 51%,31% 43%,29% 31%); }
+.mascot:active::before { cursor: grabbing; }
+body:is(.speaking, .thinking, .working, .idle-animation) .mascot::before { clip-path: polygon(22% 0%,76% 0%,76% 17%,70% 31%,70% 43%,77% 50%,87% 58%,95% 67%,97% 73%,93% 78%,86% 77%,82% 72%,78% 70%,75% 77%,83% 84%,87% 92%,83% 97%,75% 97%,70% 91%,65% 86%,61% 94%,56% 99%,50% 97%,45% 90%,40% 86%,35% 93%,30% 98%,24% 97%,19% 93%,16% 86%,19% 79%,12% 80%,8% 74%,12% 68%,21% 59%,29% 51%,32% 43%,30% 31%,24% 17%); }
+body:is(.thinking, .idle-think) .mascot::before { clip-path: polygon(0 0,100% 0,100% 22%,94% 29%,87% 33%,79% 38%,76% 45%,82% 52%,91% 60%,97% 68%,98% 74%,94% 79%,87% 78%,83% 73%,79% 71%,76% 78%,84% 85%,88% 93%,84% 98%,76% 98%,71% 92%,66% 87%,62% 95%,57% 100%,51% 98%,46% 91%,41% 87%,36% 94%,31% 99%,25% 98%,20% 94%,17% 87%,20% 80%,13% 81%,9% 75%,13% 69%,22% 60%,30% 52%,33% 44%,31% 32%,25% 18%,0 25%); }
+.octopus { display: block; width: 123px; height: 195px; background: url("./assets/claudete-walk.png") no-repeat 0 0 / 984px 195px; image-rendering: pixelated; transform: scale(.84); transform-origin: center; pointer-events: none; }
+.facing-left .octopus { scale: -1 1; }
+.working .octopus { background-image: url("./assets/claudete-work.png"); animation: frames .8s steps(7,end) infinite; }
+.walking .octopus { background-image: url("./assets/claudete-walk.png"); animation: frames .8s steps(7,end) infinite; }
+.speaking .octopus { background-image: url("./assets/claudete-talk.png"); animation: frames .8s steps(7,end) infinite; }
+.thinking .octopus { background-image: url("./assets/claudete-think.png"); animation: frames .8s steps(7,end) infinite; }
+.idle-animation .octopus { animation: frames 1s steps(7,end) infinite; }
+.idle-think .octopus { background-image: url("./assets/claudete-think.png"); }
+.idle-talk .octopus { background-image: url("./assets/claudete-talk.png"); }
+.normal .octopus { background-position: 0 0; animation: bob 2.8s ease-in-out infinite; }
+@keyframes frames { to { background-position-x: -861px; } }
+@keyframes bob { 0%,100% { translate: 0 0; } 50% { translate: 0 -3px; } }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; } }
